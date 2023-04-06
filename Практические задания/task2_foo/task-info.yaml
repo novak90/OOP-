@@ -1,0 +1,76 @@
+type: theory
+files:
+- name: main.py
+  visible: true
+  text: |
+    import unittest
+    from add import Calculator
+
+
+    class TestStringMethods(unittest.TestCase):
+        print("TestString")
+
+        def test_upper(self):
+            self.assertEqual('foo'.upper(), 'FOO')
+
+        def test_isupper(self):
+            self.assertTrue('FOO'.isupper())
+            self.assertFalse('Foo'.isupper())
+
+        def test_split(self):
+            s = 'hello world'
+            self.assertEqual(s.split(), ['hello', 'world'])
+            # check that s.split fails when the separator is not a string
+            with self.assertRaises(TypeError):
+                s.split(2)
+
+
+    class TestCalculator(unittest.TestCase):
+        print("TestCalculator")
+
+        def test_add(self):
+            print("test_add")
+            self.assertEqual(Calculator.add(5, 3), 8)
+
+        def test_color(self):
+            print("test_add")
+            self.assertTrue('FOO'.isupper())
+            self.assertFalse('Foo'.isupper())
+
+        def test_split(self):
+            s = 'hello world'
+            self.assertEqual(s.split(), ['hello', 'world'])
+            # check that s.split fails when the separator is not a string
+            with self.assertRaises(TypeError):
+                s.split(2)
+
+
+    if __name__ == '__main__':
+        unittest.main()
+  learner_created: false
+- name: __init__.py
+  visible: false
+  learner_created: false
+- name: add.py
+  visible: true
+  text: |
+    class Calculator:
+        color = 'black'
+
+        def __init__(self, base_value):
+            self.value = base_value
+
+        def iadd(self, value):
+            self.value += value
+
+        @classmethod
+        def set_color(cls, value):
+            cls.color = value
+
+        @staticmethod
+        def add(value1, value2):
+            return value1 + value2
+  learner_created: false
+status: Solved
+record: -1
+post_submission_on_open: true

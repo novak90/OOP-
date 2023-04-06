@@ -1,0 +1,196 @@
+type: theory
+files:
+- name: __init__.py
+  visible: false
+  learner_created: false
+- name: example.py
+  visible: true
+  text: |
+    from typing import Optional, List
+
+
+    class SuperFunction:
+        def __init__(self, data: Optional[List] = None):
+            self.data = data
+
+        @property
+        def data(self):
+            return self._data
+
+        @data.setter
+        def data(self, value):
+            if value is None:
+                self._data = []
+            else:
+                self._data = value
+
+        def append(self, value):
+            if isinstance(value, (int, float, str)):
+                self._data.append(value)
+            else:
+                raise TypeError("Не того типа")
+
+        @staticmethod
+        def sum_value(*args):
+            if not all(map(lambda x: isinstance(args[0], type(x)), args[:-1])):
+                raise TypeError("объекты разного типа")
+            return sum(*args)
+
+        def __str__(self):
+            return f"Дата = {self.data}"
+
+        def __repr__(self):
+            return f"{self.__class__.__name__}(data={self.data})"
+  learner_created: false
+- name: test_main1.py
+  visible: true
+  text: |
+    import unittest
+    from example import SuperFunction
+
+
+    class MyTests(unittest.TestCase):
+        def test_1(self):
+            self.assertEqual(SuperFunction().data, [])
+
+        def test_2(self):
+            self.assertEqual(SuperFunction([1, 2, 3]).data, [1, 2, 3])
+
+        def test_3(self):
+            test = SuperFunction([1, 2, 3])
+            test.append(4)
+            self.assertEqual(test.data, list(range(1, 5)))
+
+        def test_4(self):
+            with self.assertRaises(TypeError):
+                SuperFunction([1, 2, 3]).append([4])
+
+
+    if __name__ == '__main__':
+        unittest.main()
+  learner_created: false
+- name: test_main2.py
+  visible: true
+  text: |
+    import unittest
+    from example import SuperFunction
+
+
+    class MyTests(unittest.TestCase):
+        def test_1(self):
+            self.assertEqual(SuperFunction().data, [])
+
+        def test_2(self):
+            self.assertEqual(SuperFunction([1, 2, 3]).data, [1, 2, 3])
+
+        def test_3(self):
+            test = SuperFunction([1, 2, 3])
+            test.append(4)
+            self.assertEqual(test.data, list(range(1, 5)))
+
+        def test_4(self):
+            with self.assertRaises(TypeError):
+                SuperFunction([1, 2, 3]).append([4])
+
+
+    # if __name__ == '__main__':
+    #     unittest.main()
+  learner_created: false
+- name: test.png
+  visible: true
+  learner_created: false
+- name: tmp/__init__.py
+  visible: false
+  learner_created: false
+- name: tmp/test_main4.py
+  visible: true
+  text: |
+    import unittest
+    from example import SuperFunction
+
+
+    class MyTests(unittest.TestCase):
+        def test_1(self):
+            self.assertEqual(SuperFunction().data, [])
+
+        def test_2(self):
+            self.assertEqual(SuperFunction([1, 2, 3]).data, [1, 2, 3])
+
+        def test_3(self):
+            test = SuperFunction([1, 2, 3])
+            test.append(4)
+            self.assertEqual(test.data, list(range(1, 5)))
+
+        def test_4(self):
+            with self.assertRaises(TypeError):
+                SuperFunction([1, 2, 3]).append([4])
+
+
+    # if __name__ == '__main__':
+    #     unittest.main()
+  learner_created: false
+- name: tmp/tmp1/__init__.py
+  visible: false
+  learner_created: false
+- name: tmp/tmp1/test_main5.py
+  visible: true
+  text: |
+    import unittest
+    from example import SuperFunction
+
+
+    class MyTests(unittest.TestCase):
+        def test_1(self):
+            self.assertEqual(SuperFunction().data, [])
+
+        def test_2(self):
+            self.assertEqual(SuperFunction([1, 2, 3]).data, [1, 2, 3])
+
+        def test_3(self):
+            test = SuperFunction([1, 2, 3])
+            test.append(4)
+            self.assertEqual(test.data, list(range(1, 5)))
+
+        def test_4(self):
+            with self.assertRaises(TypeError):
+                SuperFunction([1, 2, 3]).append([4])
+  learner_created: false
+- name: test1.png
+  visible: true
+  learner_created: false
+- name: img.png
+  visible: true
+  learner_created: false
+- name: tests1/__init__.py
+  visible: false
+  learner_created: false
+- name: tests1/test_main3.py
+  visible: true
+  text: |
+    import unittest
+    from example import SuperFunction
+
+
+    class MyTests(unittest.TestCase):
+        def test_1(self):
+            self.assertEqual(SuperFunction().data, [])
+
+        def test_2(self):
+            self.assertEqual(SuperFunction([1, 2, 3]).data, [1, 2, 3])
+
+        def test_3(self):
+            test = SuperFunction([1, 2, 3])
+            test.append(4)
+            self.assertEqual(test.data, list(range(1, 5)))
+
+        def test_4(self):
+            with self.assertRaises(TypeError):
+                SuperFunction([1, 2, 3]).append([4])
+
+
+    # if __name__ == '__main__':
+    #     unittest.main()
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true
